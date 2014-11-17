@@ -4,8 +4,6 @@ import au.com.realestate.bdm.Direction;
 import au.com.realestate.bdm.Robot;
 import org.apache.log4j.Logger;
 
-import java.text.ParseException;
-
 /**
  * Robot Action utilised using a strategy pattern.  This implementation places the robot on the defined co-ordinates
  * provided.  It's key responsibilties is to parse and validate the inputs and place the robot.

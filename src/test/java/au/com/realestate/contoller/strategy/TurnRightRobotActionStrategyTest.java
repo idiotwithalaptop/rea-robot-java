@@ -2,7 +2,7 @@ package au.com.realestate.contoller.strategy;
 
 import au.com.realestate.bdm.Direction;
 import au.com.realestate.bdm.Robot;
-import au.com.realestate.controller.strategy.TurnLeftRobotActionStrategy;
+import au.com.realestate.controller.strategy.TurnRightRobotActionStrategy;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,14 +10,14 @@ import org.junit.Test;
 /**
  * Created by rbrown on 17/11/2014.
  */
-public class TurnLeftRobotActionStrategyTest
+public class TurnRightRobotActionStrategyTest
 {
-    private TurnLeftRobotActionStrategy target;
+    private TurnRightRobotActionStrategy target;
 
     @Before
     public void setUp() throws Exception
     {
-        target = new TurnLeftRobotActionStrategy();
+        target = new TurnRightRobotActionStrategy();
     }
 
     @Test
@@ -48,10 +48,10 @@ public class TurnLeftRobotActionStrategyTest
     }
 
     @Test
-    public void testExecute_FacingNorth_MovesWest() throws Exception
+    public void testExecute_FacingNorth_MovesEast() throws Exception
     {
         // Arrange
-        Direction expectedDirection = Direction.WEST;
+        Direction expectedDirection = Direction.EAST;
         Robot robot = new Robot(3, 3, Direction.NORTH);
 
         // Act
@@ -62,10 +62,10 @@ public class TurnLeftRobotActionStrategyTest
     }
 
     @Test
-    public void testExecute_FacingWest_MovesSouth() throws Exception
+    public void testExecute_FacingWest_MovesNorth() throws Exception
     {
         // Arrange
-        Direction expectedDirection = Direction.SOUTH;
+        Direction expectedDirection = Direction.NORTH;
         Robot robot = new Robot(3, 3, Direction.WEST);
 
         // Act
@@ -76,10 +76,10 @@ public class TurnLeftRobotActionStrategyTest
     }
 
     @Test
-    public void testExecute_FacingSouth_MovesEast() throws Exception
+    public void testExecute_FacingSouth_MovesWest() throws Exception
     {
         // Arrange
-        Direction expectedDirection = Direction.EAST;
+        Direction expectedDirection = Direction.WEST;
         Robot robot = new Robot(3, 3, Direction.SOUTH);
 
         // Act
@@ -90,10 +90,10 @@ public class TurnLeftRobotActionStrategyTest
     }
 
     @Test
-    public void testExecute_FacingEast_MovesNorth() throws Exception
+    public void testExecute_FacingEast_MovesSouth() throws Exception
     {
         // Arrange
-        Direction expectedDirection = Direction.NORTH;
+        Direction expectedDirection = Direction.SOUTH;
         Robot robot = new Robot(3, 3, Direction.EAST);
 
         // Act
