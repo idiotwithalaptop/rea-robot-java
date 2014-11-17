@@ -6,6 +6,9 @@ import org.apache.log4j.Logger;
 import java.io.PrintStream;
 
 /**
+ * Robot Action utilised using a strategy pattern.  This implementation reports the robot's status to the
+ * provided print stream.
+ *
  * Created by rbrown on 18/11/2014.
  */
 public class ReportRobotActionStrategy implements IRobotActionStrategy
@@ -14,11 +17,20 @@ public class ReportRobotActionStrategy implements IRobotActionStrategy
 
     private PrintStream streamOut;
 
+    /**
+     * Constructor, requires a print stream to be provided to print the robot's status to.
+     * @param streamOut
+     */
     public ReportRobotActionStrategy(PrintStream streamOut)
     {
         this.streamOut = streamOut;
     }
 
+    /**
+     * Reports the robot's status to the provided print stream.
+     * @param robot The robot to execute the strategy on.
+     * @param args The arguments for the strategy.
+     */
     @Override
     public void execute(Robot robot, String... args)
     {
@@ -36,6 +48,7 @@ public class ReportRobotActionStrategy implements IRobotActionStrategy
             return;
         }
 
+        // Print the report string to the print stream
         streamOut.println(robot.toString());
     }
 }
