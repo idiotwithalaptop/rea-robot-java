@@ -36,6 +36,8 @@ public class ReportRobotActionStrategy implements IRobotActionStrategy
     @Override
     public void execute(Robot robot, String... args)
     {
+        LOG.debug("Executing Report command");
+
         // Validate inputs
         if (robot == null)
         {

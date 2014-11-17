@@ -40,6 +40,7 @@ public class MoveRobotActionStrategy implements IRobotActionStrategy
     @Override
     public void execute(Robot robot, String... args)
     {
+        LOG.debug("Executing Move command");
         // Validate inputs
         if (robot == null)
         {

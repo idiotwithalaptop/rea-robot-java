@@ -2,6 +2,7 @@ package au.com.realestate.controller;
 
 import au.com.realestate.bdm.Robot;
 import au.com.realestate.controller.strategy.*;
+import org.apache.log4j.Logger;
 
 import java.io.PrintStream;
 import java.util.HashMap;
@@ -18,6 +19,7 @@ import java.util.regex.Pattern;
 public class RobotController
 {
     private static final Pattern COMMAND_REGEX = Pattern.compile("(\\S+)( (\\S+,)\\S+)?");
+    private static final Logger LOG = Logger.getLogger(RobotController.class);
     private Robot robot;
     private Map<String, IRobotActionStrategy> actionStrategies;
 
@@ -69,6 +71,7 @@ public class RobotController
             {
                 // Extract command.  Should be PLACE, REPORT, LEFT, RIGHT or MOVE
                 String command = matcher.group(1);
+                LOG.debug(String.format("PARSING COMMAND: %s", command));
                 // Get related strategy for this command.
                 IRobotActionStrategy strategy = actionStrategies.get(command);
                 if (strategy != null)

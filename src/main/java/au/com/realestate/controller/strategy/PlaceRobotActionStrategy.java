@@ -41,6 +41,14 @@ public class PlaceRobotActionStrategy implements IRobotActionStrategy
     @Override
     public void execute(Robot robot, String... args)
     {
+        LOG.debug("Executing Place command");
+        if(LOG.isDebugEnabled())
+        {
+            for(String arg : args)
+            {
+                LOG.debug(String.format("Place argument found: %s", arg));
+            }
+        }
         // Validate arguments
         if (robot == null)
         {

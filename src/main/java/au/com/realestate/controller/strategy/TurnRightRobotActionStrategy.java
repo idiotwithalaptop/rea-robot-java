@@ -24,6 +24,8 @@ public class TurnRightRobotActionStrategy implements IRobotActionStrategy
     @Override
     public void execute(Robot robot, String... args)
     {
+        LOG.debug("Executing Turn Right command");
+
         // Validate inputs
         if (robot == null)
         {
