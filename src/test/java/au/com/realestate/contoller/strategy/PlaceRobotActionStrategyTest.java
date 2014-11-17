@@ -181,7 +181,7 @@ public class PlaceRobotActionStrategyTest
     {
         // Arrange
         int expectedX = 1;
-        int expectedY = MAX_Y;
+        int expectedY = 0;
         Direction expectedDirection = Direction.SOUTH;
         Robot robot = new Robot();
 

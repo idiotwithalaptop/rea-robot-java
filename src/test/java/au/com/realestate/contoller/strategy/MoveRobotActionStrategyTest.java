@@ -46,8 +46,6 @@ public class MoveRobotActionStrategyTest
 
         // Assert
         Assert.assertNull(robot.getDirection());
-        Assert.assertNull(robot.getX());
-        Assert.assertNull(robot.getY());
         Assert.assertFalse(robot.isInitialised());
     }
 
@@ -55,10 +53,10 @@ public class MoveRobotActionStrategyTest
     public void testExecute_LargeX_MaximumUsed() throws Exception
     {
         // Arrange
-        int expectedX = 5;
+        int expectedX = MAX_X;
         int expectedY = 3;
         Direction expectedDirection = Direction.EAST;
-        Robot robot = new Robot(5, 3, Direction.EAST);
+        Robot robot = new Robot(MAX_X, 3, Direction.EAST);
 
         // Act
         target.execute(robot);
@@ -74,9 +72,9 @@ public class MoveRobotActionStrategyTest
     {
         // Arrange
         int expectedX = 3;
-        int expectedY = 5;
+        int expectedY = MAX_Y;
         Direction expectedDirection = Direction.NORTH;
-        Robot robot = new Robot(3, 5, Direction.NORTH);
+        Robot robot = new Robot(3, MAX_Y, Direction.NORTH);
 
         // Act
         target.execute(robot);
@@ -145,7 +143,7 @@ public class MoveRobotActionStrategyTest
     public void testExecute_Valid_MovesEast() throws Exception
     {
         // Arrange
-        int expectedX = 5;
+        int expectedX = 6;
         int expectedY = 3;
         Direction expectedDirection = Direction.EAST;
         Robot robot = new Robot(5, 3, Direction.EAST);

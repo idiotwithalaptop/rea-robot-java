@@ -39,12 +39,14 @@ public class MoveRobotActionStrategy implements IRobotActionStrategy
     @Override
     public void execute(Robot robot, String... args)
     {
+        // Validate inputs
         if(robot == null)
         {
             LOG.error("Provided Robot is null");
             return;
         }
 
+        // Validate robot is initialised.
         if(!robot.isInitialised())
         {
             LOG.error("Provided robot has not been initialised.  Ignoring.");
@@ -52,6 +54,8 @@ public class MoveRobotActionStrategy implements IRobotActionStrategy
         }
 
         Direction direction = robot.getDirection();
+
+        // Calculate X coordinate, ensuring the robot doesn't exceed the maximum or minimum values.
         int x = robot.getX() + direction.getDeltaX();
         if(x > maximumXValue)
         {
@@ -65,6 +69,8 @@ public class MoveRobotActionStrategy implements IRobotActionStrategy
         }
 
         int y = robot.getY() + direction.getDeltaY();
+
+        // Calculate Y coordinate, ensuring the robot doesn't exceed the maximum or minimum values.
         if(y > maximumXValue)
         {
             LOG.debug("Robot almost fell off table, setting to maximum");
@@ -76,6 +82,7 @@ public class MoveRobotActionStrategy implements IRobotActionStrategy
             y = MIN_COORDINATE_VALUE;
         }
 
+        // Set the new coordinates
         robot.setX(x);
         robot.setY(y);
     }
