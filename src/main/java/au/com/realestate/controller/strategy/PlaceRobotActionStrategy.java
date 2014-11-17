@@ -14,9 +14,10 @@ import java.text.ParseException;
  */
 public class PlaceRobotActionStrategy implements IRobotActionStrategy
 {
-    public static final int EXPECTED_NO_OF_ARGS = 3;
     private static Logger LOG = Logger.getLogger(PlaceRobotActionStrategy.class);
     private static final int MIN_COORDINATE_VALUE = 0;
+
+    public static final int EXPECTED_NO_OF_ARGS = 3;
 
     private int maximumXValue;
     private int maximumYValue;
