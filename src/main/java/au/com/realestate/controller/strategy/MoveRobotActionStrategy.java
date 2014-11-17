@@ -5,6 +5,10 @@ import au.com.realestate.bdm.Robot;
 import org.apache.log4j.Logger;
 
 /**
+ * Robot Action utilised using a strategy pattern.  This implementation moves the robot in the direction is is facing.
+ * It's key responsibilties is to validate the movement to ensure the robot won't fall off the table and updates the
+ * robot's position.
+ *
  * Created by rbrown on 17/11/2014.
  */
 public class MoveRobotActionStrategy implements IRobotActionStrategy
@@ -26,6 +30,12 @@ public class MoveRobotActionStrategy implements IRobotActionStrategy
         this.maximumYValue = maximumYValue;
     }
 
+    /**
+     * Validates the movement, ensuring the robot will not fall off it's table, and then updates
+     * the robot's position.
+     * @param robot The robot to execute the strategy on.
+     * @param args The arguments for the strategy.
+     */
     @Override
     public void execute(Robot robot, String... args)
     {
