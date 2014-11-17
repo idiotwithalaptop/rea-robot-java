@@ -19,6 +19,7 @@ public class ReportRobotActionStrategy implements IRobotActionStrategy
 
     /**
      * Constructor, requires a print stream to be provided to print the robot's status to.
+     *
      * @param streamOut
      */
     public ReportRobotActionStrategy(PrintStream streamOut)
@@ -28,21 +29,22 @@ public class ReportRobotActionStrategy implements IRobotActionStrategy
 
     /**
      * Reports the robot's status to the provided print stream.
+     *
      * @param robot The robot to execute the strategy on.
-     * @param args The arguments for the strategy.
+     * @param args  The arguments for the strategy.
      */
     @Override
     public void execute(Robot robot, String... args)
     {
         // Validate inputs
-        if(robot == null)
+        if (robot == null)
         {
             LOG.error("Provided Robot is null");
             return;
         }
 
         // Validate robot is initialised.
-        if(!robot.isInitialised())
+        if (!robot.isInitialised())
         {
             LOG.error("Provided robot has not been initialised.  Ignoring.");
             return;

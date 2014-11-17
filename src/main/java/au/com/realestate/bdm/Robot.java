@@ -95,4 +95,10 @@ public class Robot
     {
         return x >= 0 && y >= 0 && direction != null;
     }
+
+    @Override
+    public String toString()
+    {
+        return String.format("%d,%d,%s", x, y, direction.name());
+    }
 }

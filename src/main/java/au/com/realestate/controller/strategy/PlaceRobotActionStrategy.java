@@ -7,7 +7,7 @@ import org.apache.log4j.Logger;
 /**
  * Robot Action utilised using a strategy pattern.  This implementation places the robot on the defined co-ordinates
  * provided.  It's key responsibilties is to parse and validate the inputs and place the robot.
- *
+ * <p/>
  * Created by rbrown on 17/11/2014.
  */
 public class PlaceRobotActionStrategy implements IRobotActionStrategy
@@ -22,6 +22,7 @@ public class PlaceRobotActionStrategy implements IRobotActionStrategy
 
     /**
      * Constructor.  Accepts maximum values for the X and Y coordinates of the current robot context.
+     *
      * @param maximumXValue The maximum X coordinate
      * @param maximumYValue The maximum Y coordinate.
      */
@@ -33,24 +34,25 @@ public class PlaceRobotActionStrategy implements IRobotActionStrategy
 
     /**
      * Parses and validates the inputs and places the robot on the defined co-ordinates.
+     *
      * @param robot The robot to place
-     * @param args The arguments.  Expected to have 3 values: X Coordinate, Y Coordinate, Direction.
+     * @param args  The arguments.  Expected to have 3 values: X Coordinate, Y Coordinate, Direction.
      */
     @Override
     public void execute(Robot robot, String... args)
     {
         // Validate arguments
-        if(robot == null)
+        if (robot == null)
         {
             LOG.error("Provided Robot is null");
             return;
         }
-        if(args == null)
+        if (args == null)
         {
             LOG.error("Provided arguments are null");
             return;
         }
-        if(args.length < EXPECTED_NO_OF_ARGS)
+        if (args.length < EXPECTED_NO_OF_ARGS)
         {
             LOG.error("Provided arguments are null");
             return;
@@ -68,12 +70,12 @@ public class PlaceRobotActionStrategy implements IRobotActionStrategy
             LOG.error("Error parsing x value", e);
             return;
         }
-        if(x > maximumXValue)
+        if (x > maximumXValue)
         {
             LOG.debug(String.format("X value, %d, greater than allowed maximum %d.  Setting to maximum", x, maximumXValue));
             x = maximumXValue;
         }
-        if(x < MIN_COORDINATE_VALUE)
+        if (x < MIN_COORDINATE_VALUE)
         {
             LOG.debug(String.format("X value, %d, less than allowed minimum %d.  Setting to minimum", x, MIN_COORDINATE_VALUE));
             x = MIN_COORDINATE_VALUE;
@@ -91,12 +93,12 @@ public class PlaceRobotActionStrategy implements IRobotActionStrategy
             LOG.error("Error parsing y value", e);
             return;
         }
-        if(y > maximumYValue)
+        if (y > maximumYValue)
         {
             LOG.error(String.format("Y value, %d, greater than allowed maximum %d.  Setting to maximum.", y, maximumYValue));
             y = maximumYValue;
         }
-        if(y < MIN_COORDINATE_VALUE)
+        if (y < MIN_COORDINATE_VALUE)
         {
             LOG.debug(String.format("Y value, %d, less than allowed minimum %d.  Setting to minimum", y, MIN_COORDINATE_VALUE));
             y = MIN_COORDINATE_VALUE;

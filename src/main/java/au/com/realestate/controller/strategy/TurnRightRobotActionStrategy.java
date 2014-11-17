@@ -19,20 +19,20 @@ public class TurnRightRobotActionStrategy implements IRobotActionStrategy
      * clockwise.
      *
      * @param robot The robot to execute the strategy on.
-     * @param args The arguments for the strategy.
+     * @param args  The arguments for the strategy.
      */
     @Override
     public void execute(Robot robot, String... args)
     {
         // Validate inputs
-        if(robot == null)
+        if (robot == null)
         {
             LOG.error("Provided Robot is null");
             return;
         }
 
         // Validate robot is initialised.
-        if(!robot.isInitialised())
+        if (!robot.isInitialised())
         {
             LOG.error("Provided robot has not been initialised.  Ignoring.");
             return;
@@ -41,7 +41,7 @@ public class TurnRightRobotActionStrategy implements IRobotActionStrategy
         // Determines the next direction clockwise.
         Direction direction = robot.getDirection();
         Direction newDirection = null;
-        switch(direction)
+        switch (direction)
         {
             case NORTH:
                 newDirection = Direction.EAST;

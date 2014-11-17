@@ -33,21 +33,22 @@ public class MoveRobotActionStrategy implements IRobotActionStrategy
     /**
      * Validates the movement, ensuring the robot will not fall off it's table, and then updates
      * the robot's position.
+     *
      * @param robot The robot to execute the strategy on.
-     * @param args The arguments for the strategy.
+     * @param args  The arguments for the strategy.
      */
     @Override
     public void execute(Robot robot, String... args)
     {
         // Validate inputs
-        if(robot == null)
+        if (robot == null)
         {
             LOG.error("Provided Robot is null");
             return;
         }
 
         // Validate robot is initialised.
-        if(!robot.isInitialised())
+        if (!robot.isInitialised())
         {
             LOG.error("Provided robot has not been initialised.  Ignoring.");
             return;
@@ -57,12 +58,12 @@ public class MoveRobotActionStrategy implements IRobotActionStrategy
 
         // Calculate X coordinate, ensuring the robot doesn't exceed the maximum or minimum values.
         int x = robot.getX() + direction.getDeltaX();
-        if(x > maximumXValue)
+        if (x > maximumXValue)
         {
             LOG.debug("Robot almost fell off table, setting to maximum");
             x = maximumXValue;
         }
-        if(x < MIN_COORDINATE_VALUE)
+        if (x < MIN_COORDINATE_VALUE)
         {
             LOG.debug("Robot almost fell off table, setting to minimum");
             x = MIN_COORDINATE_VALUE;
@@ -71,12 +72,12 @@ public class MoveRobotActionStrategy implements IRobotActionStrategy
         int y = robot.getY() + direction.getDeltaY();
 
         // Calculate Y coordinate, ensuring the robot doesn't exceed the maximum or minimum values.
-        if(y > maximumXValue)
+        if (y > maximumXValue)
         {
             LOG.debug("Robot almost fell off table, setting to maximum");
             y = maximumYValue;
         }
-        if(y < MIN_COORDINATE_VALUE)
+        if (y < MIN_COORDINATE_VALUE)
         {
             LOG.debug("Robot almost fell off table, setting to minimum");
             y = MIN_COORDINATE_VALUE;
