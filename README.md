@@ -116,3 +116,14 @@ command files.  These can be run using the following commands:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 > java -jar rea-robot-1.0.jar < xmarksTheSpot.path
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ 
+-
+
+Debugging REA-ROBOT
+-------------------
+
+For the sake of debugging, the rea robot application will write to a debug log
+file named robot.log within the execution directory.  This file contains
+timestamped entries of actions, errors and warnings experienced through regular
+execution.
